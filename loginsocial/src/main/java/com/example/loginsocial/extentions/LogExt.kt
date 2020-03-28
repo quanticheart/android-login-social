@@ -31,21 +31,12 @@
  *  *        |/_/         \===/
  *  *                       =
  *  *
- *  * Copyright(c) Developed by John Alves at 2020/3/23 at 9:54:34 for quantic heart studios
+ *  * Copyright(c) Developed by John Alves at 2020/3/26 at 4:11:53 for quantic heart studios
  *
  */
 
-package com.quanticheart.loginsocial.toolbox.entity
+package com.example.loginsocial.extentions
 
 import android.util.Log
 
-data class UserSocialData(
-    var id: String? = "",
-    var token: String? = "",
-    var name: String? = "",
-    var email: String? = ""
-)
-
-fun UserSocialData?.log() {
-    Log.w("Social login success", this.toString())
-}
+internal fun String?.logW() = Log.w("Log Warning", this ?: "")

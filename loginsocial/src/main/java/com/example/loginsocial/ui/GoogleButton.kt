@@ -31,45 +31,50 @@
  *  *        |/_/         \===/
  *  *                       =
  *  *
- *  * Copyright(c) Developed by John Alves at 2020/3/23 at 9:3:15 for quantic heart studios
+ *  * Copyright(c) Developed by John Alves at 2020/3/28 at 6:30:6 for quantic heart studios
  *
  */
 
-apply plugin: 'com.android.application'
+package com.example.loginsocial.ui
 
-apply plugin: 'kotlin-android'
+import android.app.Activity
+import android.content.Context
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
+import com.example.loginsocial.R
+import com.example.loginsocial.google.startGoogleLogin
+import com.example.loginsocial.google.startGoogleLoginFragment
+import com.example.loginsocial.toolbox.entity.UserSocialData
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import kotlinx.android.synthetic.main.layout_facebook_button.view.*
 
-apply plugin: 'kotlin-android-extensions'
+class GoogleButton @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
 
-android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
-    defaultConfig {
-        applicationId "com.quanticheart.loginsocial"
-        minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    private var button: View =
+        LayoutInflater.from(context).inflate(R.layout.layout_google_button, this, false)
+
+    init {
+        addView(button)
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+
+    fun init(activity: Activity) {
+        button.btnLoginFacebook.startGoogleLogin(activity)
     }
-}
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    fun init(fragment: Fragment) {
+        button.btnLoginFacebook.startGoogleLoginFragment(fragment)
+    }
 
-    implementation project(':loginsocial')
+    fun init(activity: Activity, callback: (UserSocialData?, GoogleSignInAccount?) -> Unit) {
+        button.btnLoginFacebook.startGoogleLogin(activity, callback)
+    }
 
+    fun init(fragment: Fragment, callback: (UserSocialData?, GoogleSignInAccount?) -> Unit) {
+        button.btnLoginFacebook.startGoogleLoginFragment(fragment, callback)
+    }
 }

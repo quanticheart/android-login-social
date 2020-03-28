@@ -1,0 +1,40 @@
+
+//    entre no link e crie seu app
+//    https://developers.google.com/identity/sign-in/android/start-integrating
+//
+//    Uns dos passos é adicionar hash sha1 do seu certificado local
+//
+//    1 Execute seu projeto
+//    2 Clique no menu Gradle
+//    3 Clique em projeto(root) -> Tasks
+//    4 Clique duas vezes em android-> signingReporte veja a mágica
+//    5 Ele lhe dirá tudo na guia Executar
+//
+//    https://stackoverflow.com/questions/15727912/sha-1-fingerprint-of-keystore-certificate/15727931
+//
+//    Uma lista ira aparecer assim :
+//    Enter keystore password:
+//    Alias name: androiddebugkey
+//    Creation date: Nov 28, 2017
+//    Entry type: PrivateKeyEntry
+//    Certificate chain length: 1
+//    Certificate[1]:
+//    Owner: C=US, O=Android, CN=Android Debug
+//    Issuer: C=US, O=Android, CN=Android Debug
+//    Serial number: 1
+//    Valid from: Tue Nov 28 18:54:16 BRST 2017 until: Thu Nov 21 18:54:16 BRST 2047
+//    Certificate fingerprints:
+//    MD5:  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//    SHA1: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//    SHA256: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//    Signature algorithm name: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//    Subject Public Key Algorithm: 1024-bit RSA key
+//    Version: 1
+//
+//    Pegue o código sha1 e adicione no google
+//
+//    Clique em Configurar um projeto e adicione os dados
+//
+//    baixe o credentials.json e coloqueo dentro da pasta "app" do projeto
+//    pronto!!
+//

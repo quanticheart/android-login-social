@@ -1,0 +1,39 @@
+
+//     https://developers.facebook.com/docs/facebook-login/android/
+//https://developers.facebook.com/apps/120703732131322/fb-login/quickstart/
+//    //==============================================================================================
+//    //
+//    // Structure Response
+//    //
+//    //==============================================================================================
+//
+//    //Json Structure Example
+////
+////    {
+////            "id": "579156356",
+////            "name": "Vishal Jethani",
+////            "first_name": "Vishal",
+////            "last_name": "Jethani",
+////            "link": "https://www.facebook.com/vishal.jethani",
+////            "username": "vishal.jethani",
+////
+////   "hometown": {
+////            "id": "106442706060302",
+////            "name": "Pune, Maharashtra"
+////    },
+////   "location": {
+////        "id": "106377336067638",
+////        "name": "Bangalore, India"
+////    },
+////            "bio": "bye bye to bad characters",
+////            "gender": "male",
+////            "relationship_status": "Single",
+////            "timezone": 5.5,
+////            "locale": "en_GB",
+////            "verified": true,
+////            "updated_time": "2012-06-15T05:33:31+0000",
+////            "type": "user"
+////    }
+//
+////    W/FB: {Response:  responseCode: 200, graphObject: {"id":"2037594996552257","name":"Jonatas Alves","email":"jonny255d@hotmail.com","last_name":"Alves","first_name":"Jonatas"}, error: null}
+//

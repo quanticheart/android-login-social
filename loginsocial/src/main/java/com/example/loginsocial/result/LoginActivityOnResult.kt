@@ -31,36 +31,53 @@
  *  *        |/_/         \===/
  *  *                       =
  *  *
- *  * Copyright(c) Developed by John Alves at 2020/3/23 at 9:45:18 for quantic heart studios
+ *  * Copyright(c) Developed by John Alves at 2020/3/28 at 4:51:55 for quantic heart studios
  *
  */
 
-package com.quanticheart.loginsocial.toolbox.activityResult
+package com.example.loginsocial.result
 
 import android.app.Activity
 import android.content.Intent
-import com.quanticheart.loginsocial.google.googleAccountData
-import com.quanticheart.loginsocial.toolbox.constants.LoginSocialConstants.appleLogin
-import com.quanticheart.loginsocial.toolbox.constants.LoginSocialConstants.facebookLogin
-import com.quanticheart.loginsocial.toolbox.constants.LoginSocialConstants.googleLogin
-import com.quanticheart.loginsocial.toolbox.entity.UserSocialData
+import androidx.fragment.app.Fragment
+import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
+import com.example.loginsocial.facebook.onFacebookLoginActivityResultCallback
+import com.example.loginsocial.google.onGoogleLoginActivityResult
+import com.example.loginsocial.toolbox.entity.UserSocialData
+import com.facebook.internal.CallbackManagerImpl
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import org.json.JSONObject
 
 fun Activity.onLoginSocialActivityResult(
     requestCode: Int,
+    resultCode: Int,
     data: Intent?,
-    googleCallback: (UserSocialData?) -> Unit
+    googleCallback: (UserSocialData?, GoogleSignInAccount?) -> Unit,
+    facebookCallback: (UserSocialData?, JSONObject?) -> Unit
 ) {
-    data?.let {
-        when (requestCode) {
-            googleLogin -> {
-                googleAccountData(data) {
-                    googleCallback(it)
-                }
-            }
-            facebookLogin -> {
-            }
-            appleLogin -> {
-            }
+    when (requestCode) {
+        googleLogin -> {
+            onGoogleLoginActivityResult(requestCode, data, googleCallback)
         }
-    } ?: run { }
+        CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode() -> {
+            onFacebookLoginActivityResultCallback(requestCode, resultCode, data, facebookCallback)
+        }
+    }
+}
+
+fun Fragment.onLoginSocialActivityResult(
+    requestCode: Int,
+    resultCode: Int,
+    data: Intent?,
+    googleCallback: (UserSocialData?, GoogleSignInAccount?) -> Unit,
+    facebookCallback: (UserSocialData?, JSONObject?) -> Unit
+) {
+    when (requestCode) {
+        googleLogin -> {
+            onGoogleLoginActivityResult(requestCode, data, googleCallback)
+        }
+        CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode() -> {
+            onFacebookLoginActivityResultCallback(requestCode, resultCode, data, facebookCallback)
+        }
+    }
 }

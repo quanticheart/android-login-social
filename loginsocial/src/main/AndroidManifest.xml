@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<!--
   ~ /*
   ~  *                                     /@
   ~  *                      __        __   /\/
@@ -31,41 +31,9 @@
   ~  *        |/_/         \===/
   ~  *                       =
   ~  *
-  ~  * Copyright(c) Developed by John Alves at 2020/3/23 at 8:37:45 for quantic heart studios
+  ~  * Copyright(c) Developed by John Alves at 2020/3/26 at 4:1:39 for quantic heart studios
   ~  */
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/googleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/facebookBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
-
-    <com.example.loginsocial.ui.FaceBookButton
-        android:id="@+id/btnFacebookLib"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp" />
-
-    <com.example.loginsocial.ui.GoogleButton
-        android:id="@+id/btnGoogleLib"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp" />
-
-</LinearLayout>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.loginsocial" />

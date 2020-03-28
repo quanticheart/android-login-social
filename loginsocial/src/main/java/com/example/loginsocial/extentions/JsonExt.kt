@@ -31,14 +31,42 @@
  *  *        |/_/         \===/
  *  *                       =
  *  *
- *  * Copyright(c) Developed by John Alves at 2020/3/23 at 9:38:44 for quantic heart studios
+ *  * Copyright(c) Developed by John Alves at 2020/3/26 at 4:6:48 for quantic heart studios
  *
  */
 
-package com.quanticheart.loginsocial.toolbox.constants
+package com.example.loginsocial.extentions
 
-object LoginSocialConstants {
-    const val googleLogin = 10010
-    const val facebookLogin = 10001
-    const val appleLogin = 10100
+import org.json.JSONObject
+
+internal fun JSONObject?.getStringOrNull(key: String): String? {
+    return try {
+        this?.getString(key)
+    } catch (e: Exception) {
+        null
+    }
+}
+
+internal fun JSONObject?.getIntOrNull(key: String): Int? {
+    return try {
+        this?.getInt(key)
+    } catch (e: Exception) {
+        null
+    }
+}
+
+internal fun JSONObject?.getJSONObjectOrNull(key: String): JSONObject? {
+    return try {
+        this?.getJSONObject(key)
+    } catch (e: Exception) {
+        null
+    }
+}
+
+internal fun JSONObject?.getBooleanOrNull(key: String): Boolean? {
+    return try {
+        this?.getBoolean(key)
+    } catch (e: Exception) {
+        null
+    }
 }
