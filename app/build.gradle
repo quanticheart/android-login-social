@@ -73,3 +73,6 @@ dependencies {
     implementation project(':loginsocial')
 
 }
+
+apply plugin: 'com.google.gms.google-services'
+

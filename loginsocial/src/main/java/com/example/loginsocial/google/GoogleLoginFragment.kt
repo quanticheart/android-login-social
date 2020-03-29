@@ -41,10 +41,10 @@ package com.example.loginsocial.google
 import android.content.Intent
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
 import com.example.loginsocial.extentions.logW
 import com.example.loginsocial.extentions.setSafeOnClickListener
 import com.example.loginsocial.extentions.showMsg
-import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
 import com.example.loginsocial.toolbox.entity.UserSocialData
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -162,9 +162,27 @@ private fun Fragment.getGoogleSignInClient(): GoogleSignInClient? {
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
         .requestEmail()
         .requestId()
-        .build()
-    return GoogleSignIn.getClient(this.requireActivity(), gso)
+
+    openJson()?.let {
+        gso.requestIdToken(it)
+    }
+    val b = gso.build()
+    return GoogleSignIn.getClient(this.requireActivity(), b)
 }
 
 private fun getUserSocialData(it: GoogleSignInAccount) =
     UserSocialData(it.id, it.idToken, it.displayName, it.email, it.photoUrl.toString())
+
+private fun Fragment.openJson(): String? {
+    return try {
+        val resId = resources.getIdentifier(
+            "default_web_client_id",
+            "string",
+            requireActivity().packageName
+        )
+        resources.getString(resId)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+}

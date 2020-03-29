@@ -41,16 +41,17 @@ package com.example.loginsocial.google
 import android.app.Activity
 import android.content.Intent
 import android.view.View
+import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
 import com.example.loginsocial.extentions.logW
 import com.example.loginsocial.extentions.setSafeOnClickListener
 import com.example.loginsocial.extentions.showMsg
-import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
 import com.example.loginsocial.toolbox.entity.UserSocialData
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+
 
 /**
  * Activity
@@ -69,7 +70,9 @@ fun View.startGoogleLogin(
     googleCallback: ((UserSocialData?, GoogleSignInAccount?) -> Unit)? = null
 ) {
     googleCallback?.let { mCallback = it }
+
     setSafeOnClickListener {
+        activity.googleLogout()
         activity.startGoogleLogin()
     }
 }
@@ -162,9 +165,27 @@ private fun Activity.getGoogleSignInClient(): GoogleSignInClient? {
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
         .requestEmail()
         .requestId()
-        .build()
-    return GoogleSignIn.getClient(this, gso)
+
+    openJson()?.let {
+        gso.requestIdToken(it)
+    }
+    val b = gso.build()
+    return GoogleSignIn.getClient(this, b)
 }
 
 private fun getUserSocialData(it: GoogleSignInAccount) =
     UserSocialData(it.id, it.idToken, it.displayName, it.email, it.photoUrl.toString())
+
+private fun Activity.openJson(): String? {
+    return try {
+        val resId = resources.getIdentifier(
+            "default_web_client_id",
+            "string",
+            packageName
+        )
+        resources.getString(resId)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+}

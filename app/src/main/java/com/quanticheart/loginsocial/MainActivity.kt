@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         googleBtn.startGoogleLogin(this)
 
         btnFacebookLib.init(this)
-
         btnGoogleLib.init(this)
     }
 

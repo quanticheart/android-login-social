@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "144208826700",
+    "firebase_url": "https://tudisco-17f87.firebaseio.com",
+    "project_id": "tudisco",
+    "storage_bucket": "tudisco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144208826700:android:4c4d25709db22df9a9bfe9",
+        "android_client_info": {
+          "package_name": "com.quanticheart.loginsocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144208826700-ul70u733i68je066na93r4qbejo71dq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quanticheart.loginsocial",
+            "certificate_hash": "7ce033ead60aea56f1d9a65fbc1165cb85b55b14"
+          }
+        },
+        {
+          "client_id": "144208826700-s5vr3nv149ckdjir2js73g5l6i9dk71n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMobdbjSb7tGcz7YqrNIrx7dewJDBe7QM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144208826700-3c7939n5n4hmqdninlm5g3evj3gsfgq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

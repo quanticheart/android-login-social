@@ -118,7 +118,6 @@ fun Activity.onFacebookLoginActivityResultCallback(
 fun Activity.getFacebookUserData() {
     val graphRequest = GraphRequest.newMeRequest(getFaceBookAccessToken()) { jsonObject, response ->
         try {
-            jsonObject.toString().logW()
             val fbId = jsonObject.getStringOrNull("id")
             val fbEmail = jsonObject.getStringOrNull("email")
             val verified = jsonObject.getBooleanOrNull("verified")
