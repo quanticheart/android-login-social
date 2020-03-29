@@ -48,7 +48,6 @@ import android.webkit.WebViewClient
 import com.example.loginsocial.apple.contants.AppleConstants
 import com.example.loginsocial.apple.entity.AppleData
 import com.example.loginsocial.extentions.getStringByKey
-import com.example.loginsocial.extentions.logW
 import java.util.*
 
 @SuppressLint("SetJavaScriptEnabled")
@@ -57,9 +56,7 @@ internal fun WebView.initAppleWebView(activity: Activity, callback: (AppleData?)
     isHorizontalScrollBarEnabled = false
     webViewClient = activity.getClient(callback)
     settings.javaScriptEnabled = true
-    val url = activity.getAppleAuthUrl()
-    url.logW()
-    loadUrl(url)
+    loadUrl(activity.getAppleAuthUrl())
 }
 
 private fun Activity.getAppleAuthUrl(): String {
