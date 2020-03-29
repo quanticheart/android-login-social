@@ -31,7 +31,7 @@
   ~  *        |/_/         \===/
   ~  *                       =
   ~  *
-  ~  * Copyright(c) Developed by John Alves at 2020/3/28 at 6:32:33 for quantic heart studios
+  ~  * Copyright(c) Developed by John Alves at 2020/3/28 at 4:16:8 for quantic heart studios
   ~  */
   -->
 
@@ -47,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/social_buttom_height"
         android:background="@drawable/btn_border_gray"
+        android:backgroundTint="@android:color/black"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,10 +55,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/btnLoginGoogle"
+        android:id="@+id/btnLoginFacebook"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="?attr/selectableItemBackground"
+        android:backgroundTint="@android:color/white"
+        android:theme="@android:style/ThemeOverlay.Material.Dark"
         app:layout_constraintBottom_toBottomOf="@+id/login_google"
         app:layout_constraintLeft_toLeftOf="@+id/login_google"
         app:layout_constraintRight_toRightOf="@+id/login_google"
@@ -67,7 +70,7 @@
         android:id="@+id/login_google_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_google_icon"
+        android:src="@drawable/ic_apple_login"
         app:layout_constraintBottom_toBottomOf="@+id/login_google"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="@+id/login_google"
@@ -80,8 +83,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/login_social_label_left_margin"
-        android:text="@string/include_social_login_google"
-        android:textColor="@android:color/black"
+        android:text="@string/include_social_login_apple"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/login_google_icon"
         app:layout_constraintLeft_toRightOf="@+id/login_google_icon"
         app:layout_constraintRight_toRightOf="@+id/login_google"

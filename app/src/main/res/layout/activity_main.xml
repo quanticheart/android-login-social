@@ -68,4 +68,10 @@
         android:layout_height="wrap_content"
         android:padding="20dp" />
 
+    <com.example.loginsocial.ui.AppleButton
+        android:id="@+id/btnAppleLib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp" />
+
 </LinearLayout>

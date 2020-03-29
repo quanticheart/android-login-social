@@ -43,7 +43,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/login_facebook"
+        android:id="@+id/login_google"
         android:layout_width="match_parent"
         android:layout_height="@dimen/social_buttom_height"
         android:background="@drawable/btn_border_orange"
@@ -59,33 +59,33 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="?attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="@+id/login_facebook"
-        app:layout_constraintLeft_toLeftOf="@+id/login_facebook"
-        app:layout_constraintRight_toRightOf="@+id/login_facebook"
-        app:layout_constraintTop_toTopOf="@+id/login_facebook" />
+        app:layout_constraintBottom_toBottomOf="@+id/login_google"
+        app:layout_constraintLeft_toLeftOf="@+id/login_google"
+        app:layout_constraintRight_toRightOf="@+id/login_google"
+        app:layout_constraintTop_toTopOf="@+id/login_google" />
 
     <ImageView
-        android:id="@+id/login_facebook_icon"
+        android:id="@+id/login_google_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_facebook_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/login_facebook"
+        app:layout_constraintBottom_toBottomOf="@+id/login_google"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintLeft_toLeftOf="@+id/login_facebook"
-        app:layout_constraintRight_toLeftOf="@+id/login_facebook_label"
-        app:layout_constraintTop_toTopOf="@+id/login_facebook"
+        app:layout_constraintLeft_toLeftOf="@+id/login_google"
+        app:layout_constraintRight_toLeftOf="@+id/login_google_label"
+        app:layout_constraintTop_toTopOf="@+id/login_google"
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/login_facebook_label"
+        android:id="@+id/login_google_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/login_social_label_left_margin"
         android:text="@string/include_social_login_facebook"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/login_facebook_icon"
-        app:layout_constraintLeft_toRightOf="@+id/login_facebook_icon"
-        app:layout_constraintRight_toRightOf="@+id/login_facebook"
-        app:layout_constraintTop_toTopOf="@+id/login_facebook_icon" />
+        app:layout_constraintBottom_toBottomOf="@+id/login_google_icon"
+        app:layout_constraintLeft_toRightOf="@+id/login_google_icon"
+        app:layout_constraintRight_toRightOf="@+id/login_google"
+        app:layout_constraintTop_toTopOf="@+id/login_google_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
