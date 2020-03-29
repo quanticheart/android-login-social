@@ -85,7 +85,7 @@ fun View.startFacebookLogin(
 
             override fun onError(exception: FacebookException) {}
         })
-    this.setSafeOnClickListener {
+    setSafeOnClickListener {
         LoginManager.getInstance()
             .logInWithReadPermissions(activity, listOf("email", "public_profile"))
     }

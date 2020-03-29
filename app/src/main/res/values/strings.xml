@@ -3,4 +3,8 @@
 
     <string name="facebook_app_id">120703732131322</string>
     <string name="fb_login_protocol_scheme">fb120703732131322</string>
+
+    <string name="apple_client_id">MY_CLIENT_ID</string>
+    <string name="apple_redirect_uri">MY_REDIRECT_URI</string>
+    <string name="apple_scope">name%20email</string>
 </resources>

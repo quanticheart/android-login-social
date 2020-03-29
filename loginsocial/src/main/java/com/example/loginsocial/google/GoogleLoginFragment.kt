@@ -42,9 +42,11 @@ import android.content.Intent
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
+import com.example.loginsocial.extentions.getStringByKey
 import com.example.loginsocial.extentions.logW
 import com.example.loginsocial.extentions.setSafeOnClickListener
 import com.example.loginsocial.extentions.showMsg
+import com.example.loginsocial.google.contants.GoogleConstants
 import com.example.loginsocial.toolbox.entity.UserSocialData
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -175,12 +177,7 @@ private fun getUserSocialData(it: GoogleSignInAccount) =
 
 private fun Fragment.openJson(): String? {
     return try {
-        val resId = resources.getIdentifier(
-            "default_web_client_id",
-            "string",
-            requireActivity().packageName
-        )
-        resources.getString(resId)
+        requireActivity().getStringByKey(GoogleConstants.googleStringClientID)
     } catch (e: Exception) {
         e.printStackTrace()
         null

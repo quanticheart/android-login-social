@@ -35,6 +35,8 @@
  *
  */
 
+@file:Suppress("unused")
+
 package com.example.loginsocial.ui
 
 import android.app.Activity

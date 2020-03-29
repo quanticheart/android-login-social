@@ -40,6 +40,8 @@ package com.example.loginsocial.result
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
+import com.example.loginsocial.apple.entity.AppleData
+import com.example.loginsocial.apple.onAppleLoginActivityResult
 import com.example.loginsocial.constants.LoginSocialConstants.googleLogin
 import com.example.loginsocial.facebook.onFacebookLoginActivityResultCallback
 import com.example.loginsocial.google.onGoogleLoginActivityResult
@@ -53,7 +55,8 @@ fun Activity.onLoginSocialActivityResult(
     resultCode: Int,
     data: Intent?,
     googleCallback: (UserSocialData?, GoogleSignInAccount?) -> Unit,
-    facebookCallback: (UserSocialData?, JSONObject?) -> Unit
+    facebookCallback: (UserSocialData?, JSONObject?) -> Unit,
+    appleCallback: (UserSocialData?, AppleData?) -> Unit
 ) {
     when (requestCode) {
         googleLogin -> {
@@ -63,6 +66,7 @@ fun Activity.onLoginSocialActivityResult(
             onFacebookLoginActivityResultCallback(requestCode, resultCode, data, facebookCallback)
         }
     }
+    onAppleLoginActivityResult(requestCode, data, appleCallback)
 }
 
 fun Fragment.onLoginSocialActivityResult(
@@ -70,7 +74,8 @@ fun Fragment.onLoginSocialActivityResult(
     resultCode: Int,
     data: Intent?,
     googleCallback: (UserSocialData?, GoogleSignInAccount?) -> Unit,
-    facebookCallback: (UserSocialData?, JSONObject?) -> Unit
+    facebookCallback: (UserSocialData?, JSONObject?) -> Unit,
+    appleCallback: (UserSocialData?, AppleData?) -> Unit
 ) {
     when (requestCode) {
         googleLogin -> {
@@ -80,4 +85,5 @@ fun Fragment.onLoginSocialActivityResult(
             onFacebookLoginActivityResultCallback(requestCode, resultCode, data, facebookCallback)
         }
     }
+    onAppleLoginActivityResult(requestCode, data, appleCallback)
 }

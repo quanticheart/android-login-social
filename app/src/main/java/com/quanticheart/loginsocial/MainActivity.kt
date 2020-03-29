@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         btnFacebookLib.init(this)
         btnGoogleLib.init(this)
+        btnAppleLib.init(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity() {
             googleReturn.log()
         }, { facebookReturn, jsonObject ->
             facebookReturn.log()
+        }, { appleReturn, AppleData ->
+            appleReturn.log()
         })
     }
 }

@@ -35,6 +35,8 @@
  *
  */
 
+@file:Suppress("unused")
+
 package com.example.loginsocial.ui
 
 import android.app.Activity
@@ -71,10 +73,10 @@ class FaceBookButton @JvmOverloads constructor(
     }
 
     fun init(activity: Activity, callback: (UserSocialData?, JSONObject?) -> Unit) {
-        button.btnLoginFacebook.startFacebookLogin(activity)
+        button.btnLoginFacebook.startFacebookLogin(activity, callback)
     }
 
     fun init(fragment: Fragment, callback: (UserSocialData?, JSONObject?) -> Unit) {
-        button.btnLoginFacebook.startFacebookLoginFragment(fragment)
+        button.btnLoginFacebook.startFacebookLoginFragment(fragment, callback)
     }
 }
